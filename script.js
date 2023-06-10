@@ -3,8 +3,8 @@ const spinBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
 //Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
-  { minDegree: 0, maxDegree: 90, value: 1 }, //2
-  { minDegree: 91, maxDegree: 150, value: 2 }, //6
+  { minDegree: 0, maxDegree: 180, value: 1 }, //2
+  { minDegree: 182, maxDegree: 360, value: 2 }, //6
 ];
 //Size of each piece
 const data = [25, 71];
@@ -54,9 +54,14 @@ const valueGenerator = (angleValue) => {
   for (let i of rotationValues) {
     //if the angleValue is between min and max then display it
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
-      Telegram.WebApp.ready();
-      Telegram.WebApp.sendData("1");
-      finalValue.innerHTML = `<p>Value: ${i.value}</p>`;
+      if (i.value == 1) {
+        Telegram.WebApp.ready();
+        Telegram.WebApp.sendData("1");
+      }
+      else {
+        Telegram.WebApp.ready();
+        Telegram.WebApp.sendData("2");
+      }
       spinBtn.disabled = false;
       break;
     }
