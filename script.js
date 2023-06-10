@@ -54,9 +54,8 @@ const valueGenerator = (angleValue) => {
   for (let i of rotationValues) {
     //if the angleValue is between min and max then display it
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
-      let tg = window.Telegram.WebApp;
-      tg.sendData('1');
-      tg.close();
+      Telegram.WebApp.ready();
+      Telegram.WebApp.sendData("1");
       finalValue.innerHTML = `<p>Value: ${i.value}</p>`;
       spinBtn.disabled = false;
       break;
