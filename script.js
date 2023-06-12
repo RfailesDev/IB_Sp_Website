@@ -20,7 +20,7 @@ function checkLuckyDegrees(degrees) {
   }
 
   // Проверяем, находятся ли нормализованные градусы в счастливом диапазоне
-  if (degrees >= -13 && degrees <= 13) {
+  if (degrees >= -37 && degrees <= 37) {
     return true;//"Счастливые координаты!";
   } else {
     return false;//"Несчастливые координаты.";
